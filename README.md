@@ -17,7 +17,7 @@
  </p>
 
 <h1 align="center">
-  <img src="https://github.com/alexandredev3/paginate/blob/master/paginate.png"/>
+  <img src="https://github.com/alexandredev3/paginate/blob/master/design-paginate.png"/>
 </h1>
 
 ## :computer: Languages
