@@ -37,7 +37,7 @@ const controls = {
     const firstPage = state.page < 1;
     if (firstPage) {
       state.page++;
-    }
+    };
   },
 
   goTo(page) {
@@ -160,10 +160,39 @@ const buttons = {
   }
 };
 
+function blockButtons() {
+  const { page, totalPage } = state;
+
+  const elements = {
+    prev: html.get('.controls .prev'),
+    next: html.get('.controls .next'),
+    
+    first: html.get('.controls .first'),
+    last: html.get('.controls .last')
+  };
+
+  if (page == 1) {
+    elements.prev.classList.add('disable');
+    elements.first.classList.add('disable');
+  } else {
+    elements.prev.classList.remove('disable');
+    elements.first.classList.remove('disable');
+  };
+
+  if (page == totalPage) {
+    elements.next.classList.add('disable');
+    elements.last.classList.add('disable');
+  } else {
+    elements.next.classList.remove('disable');
+    elements.last.classList.remove('disable');
+  };
+}
+
 function update() {
   list.update();
   buttons.update();
   controls.createListeners();
+  blockButtons();
 };
 
 // Iniciando Aplicação
